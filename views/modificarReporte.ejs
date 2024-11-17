@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Reporte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="/miniatura.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h2 {
+            color: #FF5733; /* Naranja cálido */
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5em; /* Ajusta el tamaño del título */
+        }
+
+        .navbar button {
+            background-color: transparent;
+            border: 1px solid #FF5733; /* Borde del botón */
+            color: #FF5733;
+            cursor: pointer;
+            font-size: 0.8em; /* Tamaño de fuente reducido */
+            padding: 5px 10px; /* Ajuste de padding para hacerlo más pequeño */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: color 0.3s, background-color 0.3s; /* Transiciones */
+        }
+
+        .navbar button:hover {
+            background-color: #FF5733; /* Fondo al pasar el mouse */
+            color: white; /* Color de texto al pasar el mouse */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            padding: 20px; /* Ajusté el padding */
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%; /* Ajusta el ancho al 90% */
+            max-width: 500px; /* Máximo ancho para pantallas grandes */
+            max-height: 80vh; /* Establece una altura máxima */
+            overflow-y: auto; /* Agrega barra de desplazamiento vertical */
+            margin-top: 60px; /* Espacio para la barra de navegación */
+        }
+
+        h1 {
+            color: #FF5733; /* Naranja cálido */
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif; /* Cambié la tipografía del título */
+            font-size: 2.8em; /* Aumenté el tamaño del título */
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #FF5733; /* Naranja cálido */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .alert {
+            color: red; /* Color rojo para el mensaje de error */
+            font-weight: bold; /* Negrita para el mensaje de error */
+            margin-top: 10px; /* Espacio arriba del mensaje */
+        }
+
+        .success {
+            color: green; /* Color verde para el mensaje de éxito */
+            font-weight: bold; /* Negrita para el mensaje de éxito */
+            margin-top: 10px; /* Espacio arriba del mensaje */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>RPA</h2>
+        <button onclick="window.history.back()">Regresar</button>
+    </div>
+    <div class="container">
+        <h1>Editar Reporte</h1>
+        <form action="/reportes/<%= reporte.id %>/modificar" method="POST">
+            <input type="text" name="nombre" value="<%= reporte.nombre %>" required placeholder="Nombre">
+            <input type="text" name="apellido" value="<%= reporte.apellido %>" required placeholder="Apellido">
+            <input type="text" name="telefono" value="<%= reporte.telefono %>" required placeholder="Teléfono">
+            <input type="email" name="correo" value="<%= reporte.correo %>" required placeholder="Correo Electrónico">
+            <input type="text" name="sexo" value="<%= reporte.sexo %>" required placeholder="Sexo">
+            <input type="number" name="edad" value="<%= reporte.edad %>" required placeholder="Edad">
+            <input type="text" name="tipo_animal" value="<%= reporte.tipo_animal %>" required placeholder="Tipo de Animal">
+            <input type="text" name="posible_responsable" value="<%= reporte.posible_responsable %>" required placeholder="Posible Responsable">
+            <textarea name="descripcion" required placeholder="Descripción"><%= reporte.descripcion %></textarea>
+            <input type="date" name="fecha" value="<%= reporte.fecha %>" required>
+            <input type="text" name="numero_exterior" value="<%= reporte.numero_exterior %>" required placeholder="Número Exterior">
+            <input type="text" name="colonia" value="<%= reporte.colonia %>" required placeholder="Colonia">
+            <input type="text" name="municipio" value="<%= reporte.municipio %>" required placeholder="Municipio">
+            <input type="text" name="estado" value="<%= reporte.estado %>" required placeholder="Estado">
+            <input type="text" name="codigo_postal" value="<%= reporte.codigo_postal %>" required placeholder="Código Postal">
+            <button type="submit">Guardar Cambios</button>
+        </form>
+        <% if (mensaje) { %>
+            <div class="success">
+                <%= mensaje %>
+            </div>
+        <% } %>        
+    </div>
+</body>
+</html>

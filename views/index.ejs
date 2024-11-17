@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescate y Protección Animal (RPA)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/ani.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        /* Estilos existentes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 100vh;
+            color: #444; /* Cambiado de #333 a #444 para eliminar el color café */
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: #444;
+            cursor: default;
+        }
+
+        .logo span {
+            color: #FF5733;
+        }
+
+        .navigation a {
+            font-size: 1.1em;
+            color: #444;
+            text-decoration: none;
+            margin-right: 40px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .navigation a:hover {
+            color: #FF5733;
+        }
+
+        .account {
+            color: #444;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .account:hover {
+            color: #FF5733;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 100%;
+            max-width: 700px;
+            height: 65vh;
+            margin-top: 110px;
+        }
+
+        h2 {
+            color: #FF5733;
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+        }
+
+        h4 {
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #444;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .btn-group a {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn-group a:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .btn-more-info {
+            background-color: #f63333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .btn-more-info:hover {
+            background-color: white;
+            color: #444;
+            border: 2px solid #444;
+        }
+
+        .btn-help {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: .3s;
+            margin-left: 10px; /* Espaciado */
+        }
+
+        .btn-help:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 1.5em;
+            color: #FF5733;
+        }
+
+        .comment-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #FF5733;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .comment-icon:hover {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="logo"><span>R</span>PA</h2>
+        <nav class="navigation">
+            <a href="/contactos">CONTACTO</a>
+            <a href="/cuenta" class="account">MI CUENTA</a>
+            <a href="/logout" class="account">CERRAR SESIÓN</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="content">
+            <h2><span>Rescate y Protección</span> Animal (RPA)</h2>
+            <h4>Un compromiso con la vida animal</h4>
+            <p>La misión de RPA es proteger y rescatar a los animales que han sido víctimas de maltrato y abandono. A través de nuestra plataforma, los usuarios pueden reportar casos y ayudar a salvar vidas.</p>
+            <div class="btn-group">
+                <a href="/formulario" class="btn-more-info">Levantar Reporte</a>
+                <a href="/informacion" class="btn-more-info">Ver más información</a>
+                <a href="/ayuda" class="btn-help">¿Necesitas Ayuda?</a> <!-- Botón de ayuda agregado -->
+            </div>
+        </div>
+    </section>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://x.com/"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+    <div class="comment-icon" onclick="window.location.href='/comentarios'">
+        <i class="fa-solid fa-comment-dots"></i>
+    </div>
+</body>
+</html>

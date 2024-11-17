@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Enlaza tu CSS -->
+</head>
+<body>
+    <h1>Reportar un Problema</h1>
+    <p>Si tienes problemas con la aplicación, por favor, completa el siguiente formulario y nos pondremos en contacto contigo.</p>
+    
+    <form id="reportForm" action="/ayuda" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" id="correo" required>
+
+        <label for="problema">Descripción del Problema:</label>
+        <textarea name="problema" id="problema" required></textarea>
+
+        <button type="submit">Enviar Reporte</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('reportForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+            
+            const formData = new FormData(form);
+    
+            fetch('/ayuda', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(data.message); // Mostrar mensaje de éxito
+                form.reset(); // Resetear el formulario
+            })
+            .catch(error => {
+                console.error('Error:', error); // Log para mayor detalle
+                alert('Hubo un problema al enviar tu reporte. Inténtalo nuevamente.'); // Manejo de errores
+            });
+        });
+    </script>
+</body>
+</html>

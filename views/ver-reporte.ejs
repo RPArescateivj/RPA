@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Enviado - RPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/ani.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .reporte {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #FF5733;
+        }
+
+        .btn {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: .3s;
+            text-align: center;
+            display: block;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .mensaje {
+            margin-bottom: 20px;
+            color: green; /* Color verde para el mensaje de éxito */
+        }
+    </style>
+</head>
+<body>
+    <div class="reporte">
+        <h2>Reporte Enviado</h2>
+        <% reportes.forEach(reporte => { %>
+            <p><strong>Nombre:</strong> <%= reporte.nombre %></p>
+            <p><strong>Teléfono:</strong> <%= reporte.telefono %></p>
+            <p><strong>Descripción:</strong> <%= reporte.descripcion %></p>
+            <p><strong>Fecha:</strong> <%= reporte.fecha %></p>
+
+            <form action="/reporte/modificar" method="POST">
+                <input type="hidden" name="id" value="<%= reporte.id %>">
+                <button type="submit" class="btn">Modificar Reporte</button>
+            </form>
+            <form action="/reporte/eliminar" method="POST">
+                <input type="hidden" name="id" value="<%= reporte.id %>">
+                <button type="submit" class="btn">Eliminar Reporte</button>
+            </form>
+        <% }) %>
+        <a href="/index" class="btn">Volver al Inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información | Rescate y Protección Animal (RPA)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/ani.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: flex-start; /* Alineado a la izquierda */
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: #333;
+            cursor: default;
+        }
+
+        .logo span {
+            color: #FF5733; /* Naranja cálido */
+        }
+
+        .navigation a {
+            font-size: 1.1em;
+            color: #333;
+            text-decoration: none;
+            margin-right: 40px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .navigation a:hover {
+            color: #FF5733;
+        }
+
+        .content {
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            max-width: 900px;
+            width: 100%;
+            margin: 150px auto 0;
+        }
+
+        h2 {
+            color: #FF5733;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .btn-back {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: .3s;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="logo"><span>R</span>PA</h2>
+        <nav class="navigation">
+            <a href="/cuenta" class="account">MI CUENTA</a>
+            <a href="/logout" class="account">CERRAR SESIÓN</a>
+            <a href="/contactos">CONTACTO</a>
+        </nav>
+    </header>
+    <section class="content">
+        <h2>Información sobre el Maltrato y Abandono Animal</h2>
+        <p>El maltrato y abandono animal son problemas serios que afectan a millones de animales en todo el mundo. En RPA, nos comprometemos a luchar contra estas prácticas mediante la promoción de la protección animal y ofreciendo a las personas una plataforma para denunciar estos actos.</p>
+        <p>El maltrato animal incluye el abuso físico, negligencia, abandono y cualquier acto que cause sufrimiento innecesario a un animal. El abandono, por otro lado, ocurre cuando los dueños dejan a sus mascotas en la calle, lo que pone en peligro su vida y bienestar.</p>
+        <p>Nuestra misión es proporcionar recursos y apoyo a aquellos que denuncian el maltrato y abandono de animales, y trabajar junto con las autoridades para garantizar que los animales reciban la justicia que merecen.</p>
+        <p>Si deseas obtener más información o apoyar nuestra causa, no dudes en contactarnos. Juntos podemos hacer una diferencia.</p>
+        <a href="/index" class="btn-back">Regresar al Inicio</a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Maltrato Animal - RPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="/miniatura.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column; /* Cambiar a columna para incluir la barra de navegación */
+            height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con transparencia */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar h1 {
+            color: #FF5733; /* Naranja cálido */
+            font-family: 'Oswald', sans-serif; /* Cambié la tipografía del título */
+        }
+
+        .navbar a {
+            background-color: #FF5733; /* Naranja cálido */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: .3s;
+            margin-left: auto; /* Mueve el enlace a la derecha */
+        }
+
+        .navbar a:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            padding: 20px; /* Reduce el padding para dar más espacio al formulario */
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%; /* Ajusta el ancho al 90% */
+            max-width: 500px; /* Máximo ancho para pantallas grandes */
+            height: 80vh; /* Altura del contenedor */
+            overflow-y: auto; /* Barra de desplazamiento solo en el contenedor */
+            margin: 20px auto; /* Centrar el contenedor y añadir margen */
+        }
+
+        h2 {
+            color: #FF5733; /* Naranja cálido */
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif; /* Cambié la tipografía del título */
+            font-size: 2.8em; /* Aumenté el tamaño del título */
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #FF5733; /* Naranja cálido */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        a {
+            color: #FF5733;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para el mensaje de error */
+        .alert {
+            color: red; /* Color rojo para el mensaje de error */
+            font-weight: bold; /* Negrita para el mensaje de error */
+            margin-top: 10px; /* Espacio arriba del mensaje */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>RPA</h1>
+        <a href="/index">Regresar</a>
+    </div>
+    <div class="container">
+        <h2>Reportar Maltrato Animal</h2>
+        <% if (mensaje) { %>
+            <div class="alert"><%= mensaje %></div>
+        <% } %>
+        <form action="/reportar" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Datos del Denunciante</legend>
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+                <input type="tel" name="telefono" placeholder="Teléfono" required>
+                <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                <select name="sexo" required>
+                    <option value="" disabled selected>Selecciona Sexo</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <input type="number" name="edad" placeholder="Edad" required>
+            </fieldset>
+            <fieldset>
+                <legend>Detalles del Reporte</legend>
+                <input type="text" name="tipo_animal" placeholder="Tipo de Animal" required>
+                <input type="text" name="posible_responsable" placeholder="Posible Responsable" required>
+                <textarea name="descripcion" placeholder="Descripción" required></textarea>
+                <input type="date" name="fecha" required>
+                <input type="text" name="numero_exterior" placeholder="Número Exterior" required>
+                <input type="text" name="colonia" placeholder="Colonia" required>
+                <input type="text" name="municipio" placeholder="Municipio" required>
+                <input type="text" name="estado" placeholder="Estado" required>
+                <input type="text" name="codigo_postal" placeholder="Código Postal" required>
+                <input type="file" name="evidencias" multiple required>
+            </fieldset>
+            <button type="submit">Enviar Reporte</button>
+        </form>
+    </div>
+</body>
+</html>

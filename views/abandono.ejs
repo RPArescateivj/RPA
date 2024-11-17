@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Abandono - RPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        h2 {
+            color: #FF5733;
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.4em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #FF5733;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        .file-input {
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <!-- Formulario unificado -->
+        <form action="/submit-abandono" method="POST" enctype="multipart/form-data">
+            <div id="denunciante-section" class="form-section active">
+                <h2>Datos del Denunciante</h2>
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="tel" name="telefono" placeholder="Número de teléfono" required>
+                <input type="email" name="correo" placeholder="Correo electrónico" required>
+                <select name="sexo" required>
+                    <option value="" disabled selected>Sexo</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <input type="number" name="edad" placeholder="Edad" required>
+                <button type="button" class="btn" id="next-to-denuncia">Siguiente</button>
+            </div>
+
+            <div id="denuncia-section" class="form-section">
+                <h2>Datos de la Denuncia</h2>
+                <select name="tipo_caso" required>
+                    <option value="abandono" selected>Abandono Animal</option>
+                </select>
+                <input type="date" name="fecha_incidente" required>
+                <input type="time" name="hora_incidente" required>
+                <select name="tipo_animal" required>
+                    <option value="" disabled selected>Tipo de Animal</option>
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <input type="text" name="responsable" placeholder="Posible Responsable">
+                <textarea name="descripcion" placeholder="Descripción del incidente" rows="5" required></textarea>
+                <input type="text" name="calle" placeholder="Calle" required>
+                <input type="text" name="numero_exterior" placeholder="Número Exterior" required>
+                <input type="text" name="colonia" placeholder="Colonia" required>
+                <input type="text" name="municipio" placeholder="Municipio" required>
+                <input type="text" name="estado" placeholder="Estado" required>
+                <input type="text" name="codigo_postal" placeholder="Código Postal" required>
+                <label>Subir evidencias (fotos):</label>
+                <input class="file-input" type="file" name="evidencias" accept="image/*" multiple>
+                <button type="submit" class="btn">Enviar Reporte</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('next-to-denuncia').addEventListener('click', function() {
+            const denuncianteForm = document.querySelector('form');
+            if (denuncianteForm.checkValidity()) {
+                document.getElementById('denunciante-section').classList.remove('active');
+                document.getElementById('denuncia-section').classList.add('active');
+            } else {
+                denuncianteForm.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>

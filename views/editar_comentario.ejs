@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Comentario</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg');
+            background-size: cover; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        h1 { 
+            color: #FF5733; 
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+        .formulario { 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+            max-width: 500px; 
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+        }
+        button { 
+            background-color: #FF5733; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        button:hover { 
+            background-color: #e14e2d; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Comentario</h1>
+    <div class="formulario">
+        <form action="/comentarios/editar/<%= comentario.id %>" method="POST">
+            <input type="text" name="nombre" value="<%= comentario.nombre %>" readonly>
+            <textarea name="mensaje" rows="4" required><%= comentario.mensaje %></textarea>
+            <button type="submit">Actualizar Comentario</button>
+        </form>
+    </div>
+</body>
+</html>

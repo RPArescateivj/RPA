@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Reportes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="/miniatura.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            padding: 20px; /* Espacio alrededor de la página */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            max-width: 1200px; /* Máximo ancho para pantallas grandes */
+            margin: auto; /* Centrar contenedor */
+            overflow: auto; /* Para manejar el desbordamiento */
+            position: relative; /* Para posicionar el botón */
+        }
+
+        h1 {
+            color: #FF5733; /* Naranja cálido */
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif; /* Cambié la tipografía del título */
+            font-size: 2.8em; /* Aumenté el tamaño del título */
+            text-align: left; /* Alinear a la izquierda */
+        }
+
+        .back-button, .edit-button {
+            padding: 5px 10px; /* Espacio dentro del botón */
+            background-color: #FF5733; /* Naranja cálido */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em; /* Tamaño de fuente más pequeño */
+            transition: background-color 0.3s; /* Transición suave */
+            text-decoration: none; /* Sin subrayado */
+        }
+
+        .back-button:hover, .edit-button:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733; /* Borde al pasar el ratón */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Eliminar espacio entre bordes */
+            margin-top: 20px; /* Espacio arriba de la tabla */
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #FF5733; /* Naranja cálido para el encabezado */
+            color: white; /* Color del texto en el encabezado */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Color de fondo para filas pares */
+        }
+
+        a {
+            color: #FF5733; /* Naranja cálido */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para el mensaje de error */
+        .alert {
+            color: red; /* Color rojo para el mensaje de error */
+            font-weight: bold; /* Negrita para el mensaje de error */
+            margin-top: 10px; /* Espacio arriba del mensaje */
+        }
+
+        /* Estilo para el mensaje de éxito */
+        .success {
+            color: green; /* Color verde para el mensaje de éxito */
+            font-weight: bold; /* Negrita para el mensaje de éxito */
+            margin-top: 10px; /* Espacio arriba del mensaje */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rescate y Protección Animal (RPA)</h1>
+        <a href="/index" class="back-button">Regresar</a>
+        <% if (reportes.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Sexo</th>
+                        <th>Edad</th>
+                        <th>Tipo de Animal</th>
+                        <th>Posible Responsable</th>
+                        <th>Descripción</th>
+                        <th>Fecha</th>
+                        <th>Número Exterior</th>
+                        <th>Colonia</th>
+                        <th>Municipio</th>
+                        <th>Estado</th>
+                        <th>Código Postal</th>
+                        <th>Evidencias</th>
+                        <th>Acciones</th> <!-- Columna para botones de acción -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <% reportes.forEach(reporte => { %>
+                        <tr>
+                            <td><%= reporte.id %></td>
+                            <td><%= reporte.nombre %></td>
+                            <td><%= reporte.apellido %></td>
+                            <td><%= reporte.telefono %></td>
+                            <td><%= reporte.correo %></td>
+                            <td><%= reporte.sexo %></td>
+                            <td><%= reporte.edad %></td>
+                            <td><%= reporte.tipo_animal %></td>
+                            <td><%= reporte.posible_responsable %></td>
+                            <td><%= reporte.descripcion %></td>
+                            <td><%= reporte.fecha %></td>
+                            <td><%= reporte.numero_exterior %></td>
+                            <td><%= reporte.colonia %></td>
+                            <td><%= reporte.municipio %></td>
+                            <td><%= reporte.estado %></td>
+                            <td><%= reporte.codigo_postal %></td>
+                            <td>
+                                <% if (reporte.evidencias) { %>
+                                    <a href="/uploads/<%= JSON.parse(reporte.evidencias)[0] %>">Ver Evidencia</a>
+                                <% } else { %>
+                                    No hay evidencias
+                                <% } %>
+                            </td>
+                            <td>
+                                <a href="/modificarReporte/<%= reporte.id %>" class="edit-button">Modificar</a> <!-- Botón para modificar -->
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No tienes reportes.</p>
+        <% } %>
+    </div>
+</body>
+</html>

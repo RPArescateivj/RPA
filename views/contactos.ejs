@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos - Rescate y Protección Animal (RPA)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <style>
+        /* Estilos existentes */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg'); background-size: cover; background-position: center; display: flex; flex-direction: column; min-height: 100vh; }
+        .navbar { 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 10px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .navbar a { color: #FF5733; text-decoration: none; font-weight: bold; font-size: 1.2em; }
+        .navbar button { 
+            background-color: #FF5733; 
+            color: white; 
+            border: none; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 1em; 
+        }
+        .navbar button:hover { background-color: #e14e2d; }
+        .container { flex: 1; width: 100%; max-width: 600px; background-color: rgba(255, 255, 255, 0.9); padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); text-align: center; }
+        h1 { color: #FF5733; margin-bottom: 40px; }
+        .profiles { display: flex; justify-content: space-around; margin-bottom: 40px; }
+        .profile { text-align: center; }
+        .profile img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+        .profile h3 { color: #333; margin-bottom: 5px; }
+        .profile p { color: #666; font-size: 0.9em; }
+        .comment-section { margin-top: 20px; }
+        .comment-section h2 { color: #FF5733; margin-bottom: 20px; }
+        .comment-section input, .comment-section textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em; }
+        .comment-section button { background-color: #FF5733; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        .comment-section button:hover { background-color: #e14e2d; }
+        .alert { color: red; font-weight: bold; margin-top: 10px; }
+        .success { color: green; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/index">Regresar</a>
+        <form action="/comentarios" method="GET" style="display: inline;">
+            <button type="submit">Ver mis comentarios</button>
+        </form>
+    </div>
+    <div class="container">
+        <h1>Contáctanos</h1>
+        
+        <div class="profiles">
+            <!-- Perfiles de los contactos -->
+            <div class="profile">
+                <a href="https://www.instagram.com/dixo_vuxx" target="_blank">
+                    <img src="https://pic.pngsucai.com/00/12/04/829fe991baa5d5c1.webp" alt="Valeria">
+                    <h3>Valeria</h3>
+                    <p>Fundadora y Desarrolladora</p>
+                </a>
+            </div>
+            <div class="profile">
+                <a href="https://www.instagram.com/rxmi_yzy" target="_blank">
+                    <img src="https://pic.pngsucai.com/00/12/04/829fe991baa5d5c1.webp" alt="Ingrid">
+                    <h3>Ingrid</h3>
+                    <p>Desarrolladora y Diseñadora</p>
+                </a>
+            </div>
+            <div class="profile">
+                <a href="https://www.instagram.com/jesusx222.xd" target="_blank">
+                    <img src="https://pic.pngsucai.com/00/12/04/829fe991baa5d5c1.webp" alt="Jesús">
+                    <h3>Jesús</h3>
+                    <p>Desarrollador y Coordinador</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="comment-section">
+            <h2>Déjanos tus comentarios o preguntas</h2>
+            <form action="/contacto" method="POST">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <!-- Mensaje de éxito o error -->
+            <% if (mensaje) { %>
+                <div class="alert success">
+                    <%= mensaje %>
+                </div>
+            <% } %>
+            <% if (error) { %>
+                <div class="alert">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Rescate y Protección Animal (RPA)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="shortcut icon" href="/miniatura.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+            padding: 40px; /* Aumenté el padding */
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%; /* Ajusta el ancho al 90% */
+            max-width: 500px; /* Máximo ancho para pantallas grandes */
+        }
+
+        h2 {
+            color: #FF5733; /* Naranja cálido */
+            margin-bottom: 20px;
+            font-family: 'Oswald', sans-serif; /* Cambié la tipografía del título */
+            font-size: 2.8em; /* Aumenté el tamaño del título */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #FF5733; /* Naranja cálido */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: transparent;
+            color: #FF5733;
+            border: 2px solid #FF5733;
+        }
+
+        a {
+            color: #FF5733;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .title {
+            font-size: 2.8em; /* Aumenté el tamaño del título */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">Rescate y Protección Animal (RPA)-Registro</h2>
+        <form action="/register" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="email" name="email" placeholder="Correo" required>
+            <input type="password" name="password" placeholder="Contraseña" required minlength="8">
+            <button type="submit">Registrarse</button>
+        </form>
+        
+        <p><a href="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a></p>
+    </div>
+</body>
+</html>

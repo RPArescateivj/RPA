@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Comentarios</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-image: url('https://st3.depositphotos.com/1177973/14011/i/450/depositphotos_140115380-stock-photo-group-of-cute-pets.jpg');
+            background-size: cover; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px; 
+        }
+        h1 { 
+            color: #FF5733; 
+            text-align: center; 
+            margin-bottom: 20px;
+        }
+        .comentario { 
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 15px; 
+            margin-bottom: 10px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            width: 100%;
+            max-width: 600px;
+        }
+        .comentario h3 { 
+            color: #FF5733; 
+        }
+        .boton { 
+            color: white; 
+            padding: 5px 10px; 
+            margin-top: 10px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+        }
+        .editar { 
+            background-color: #28a745; 
+        }
+        .eliminar { 
+            background-color: #dc3545; 
+        }
+        .regresar-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FF5733;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="/contactos" class="regresar-btn">Regresar</a>
+    <h1>Mis Comentarios de <%= nombre %></h1>
+
+    <% if (comentarios && comentarios.length > 0) { %>
+        <% comentarios.forEach(function(comentario) { %>
+            <div class="comentario">
+                <h3>Comentario <%= comentario.id %></h3>
+                <p><strong>Mensaje:</strong> <%= comentario.mensaje %></p>
+                <p><strong>Fecha:</strong> <%= new Date(comentario.fecha).toLocaleDateString('es-MX') %></p>
+                <a href="/comentarios/editar/<%= comentario.id %>" class="boton editar">Editar</a>
+                <a href="/comentarios/eliminar/<%= comentario.id %>" class="boton eliminar" onclick="return confirm('¿Estás seguro de eliminar este comentario?')">Eliminar</a>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No tienes comentarios registrados.</p>
+    <% } %>
+</body>
+</html>

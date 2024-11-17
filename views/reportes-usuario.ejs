@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de Usuario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Incluye aquí el mismo estilo utilizado en panel.ejs */
+        /* (código de estilo omitido para evitar repetición) */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reportes del Usuario</h2>
+        <ul>
+            <% reportes.forEach(reporte => { %>
+                <li><%= reporte.descripcion %> - Fecha: <%= reporte.fecha %></li>
+            <% }); %>
+        </ul>
+        <a href="/panel-admin" class="view-button">Volver al panel de administrador</a>
+    </div>
+</body>
+</html>

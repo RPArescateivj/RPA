@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de Usuarios</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Asegúrate de ajustar el path -->
+</head>
+<body>
+    <h1>Usuarios</h1>
+    <ul>
+        <% usuarios.forEach(usuario => { %>
+            <li>
+                <%= usuario.nombre %> <%= usuario.apellido %> 
+                <a href="/reportes/<%= usuario.id %>">Ver Reportes</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

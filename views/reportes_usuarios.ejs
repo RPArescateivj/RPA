@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de Usuario</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Ajusta el path -->
+</head>
+<body>
+    <h1>Reportes del Usuario</h1>
+    <ul>
+        <% reportes.forEach(reporte => { %>
+            <li>
+                <strong>Descripción:</strong> <%= reporte.descripcion %> 
+                <strong>Fecha:</strong> <%= reporte.fecha %>
+                <!-- Agrega más campos según sea necesario -->
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
